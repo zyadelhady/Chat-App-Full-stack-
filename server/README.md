@@ -2,7 +2,7 @@
 
 Hello . this the back end and frontend for chat app with private messages (one to one) 
 
-you can see the demo from #[here](https://real-time-chat-web-application.herokuapp.com/)
+you can see the demo from [**here**](https://real-time-chat-web-application.herokuapp.com/)
 
 you should signup first and you will be logged in
 
