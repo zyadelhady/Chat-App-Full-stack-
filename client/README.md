@@ -1,8 +1,7 @@
 https://www.behance.net/gallery/93164379/Social-Concept-Application
 
-Hello . this the front end for chat app with private messages (one to one) you can see backend Code from [here](https://github.com/zyadelhady/chat-back-end)
-
-and you can see the demo from [here](https://chat-app-real-time-live.herokuapp.com/)
+Hello . this the front end for chat app with private messages (one to one) 
+and you can see the demo from [here](https://real-time-chat-web-application.herokuapp.com/)
 
 you should signup first and you will be logged in
 
