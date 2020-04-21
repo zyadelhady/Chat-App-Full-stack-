@@ -1,0 +1,25 @@
+.Send {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  &Textarea {
+    resize: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    outline: none;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    border-radius: 5rem;
+    width: 100%;
+    margin-right: 2rem;
+    color: var(--txt-clr);
+    background-color: var(--bg-clr);
+  }
+  &Btn {
+    width: 5rem;
+    height: 5rem;
+  }
+}

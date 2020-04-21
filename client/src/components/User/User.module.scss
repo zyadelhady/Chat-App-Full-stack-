@@ -1,0 +1,61 @@
+.Usr {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-clr);
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  font-size: 1.6rem;
+  color: inherit;
+  &:hover {
+    background-color: var(--line);
+  }
+
+  &Pic {
+    position: relative;
+    &Active {
+      position: absolute;
+      width: 1.8rem;
+      border: 2px solid var(--bg-clr);
+      height: 1.8rem;
+      border-radius: 50%;
+      background-color: rgb(0, 200, 0);
+      bottom: -0.7rem;
+      right: -1.4rem;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+    img {
+      width: 5rem;
+      border-radius: 50%;
+      @media only screen and (max-width: 768px) {
+        width: 3.5rem;
+      }
+    }
+  }
+}
+.Msg {
+  &User {
+    margin-left: 1rem;
+    &Name {
+      font-weight: 500;
+      font-size: 1em;
+    }
+    &Msg {
+      margin-top: 1rem;
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .Usr {
+    justify-content: center;
+  }
+  .Msg {
+    &User {
+      display: none;
+    }
+  }
+}

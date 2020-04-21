@@ -1,0 +1,47 @@
+.Layout {
+  overflow: hidden;
+}
+
+.Right {
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+
+.Left {
+  border-left: 1px solid var(--line);
+  // @media only screen and (max-width: 1023px) {
+  //   display: none !important;
+  // }
+}
+
+.Logout {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  @media only screen and (max-width: 1023px) {
+    align-self: center;
+    width: 5rem;
+    height: 5rem;
+    p {
+      display: none;
+    }
+  }
+}
+
+.ThemeBtn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  @media only screen and (max-width: 1023px) {
+    align-self: center;
+    width: 5rem;
+    height: 5rem;
+    p {
+      display: none;
+    }
+  }
+}

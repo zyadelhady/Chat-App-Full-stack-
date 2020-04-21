@@ -1,0 +1,18 @@
+.Btn {
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--txt-clr);
+  background-color: var(--bg-clr);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+  & > :not(:first-child) {
+    margin-left: 1rem;
+  }
+  &:hover {
+    color: var(--bg-clr);
+    background-color: var(--txt-clr);
+  }
+}

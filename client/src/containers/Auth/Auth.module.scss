@@ -1,0 +1,24 @@
+.Auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &Header {
+    color: #fff !important;
+  }
+  p {
+    text-align: center;
+    font-size: 2rem;
+
+    color: red;
+  }
+  & > :not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.Create {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}

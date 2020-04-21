@@ -1,0 +1,47 @@
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: inherit;
+}
+input {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+@media (hover: none) {
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+.App {
+  background-color: var(--bg-clr);
+  color: var(--txt-clr);
+  * {
+    transition: none !important;
+  }
+}
+
+.Dark {
+  --bg-clr: var(--dark-bg-clr);
+  --txt-clr: var(--dark-txt-clr);
+  --line: var(--dark-line);
+  --main: var(--dark-main);
+  --shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.Light {
+  --bg-clr: var(--light-bg-clr);
+  --txt-clr: var(--light-txt-clr);
+  --line: var(--light--line);
+  --main: var(--light-main);
+  --shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+}

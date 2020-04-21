@@ -1,0 +1,17 @@
+.Header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+  &Img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+  &Name {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+}
