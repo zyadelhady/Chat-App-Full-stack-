@@ -6,6 +6,7 @@ const catchAsync_1 = require("../utils/catchAsync");
 const appError_1 = require("../utils/appError");
 exports.getMe = (req, res, next) => {
     req.params.id = req.session.user._id;
+    console.log(req.session.user._id);
     next();
 };
 exports.createUser = (req, res) => {

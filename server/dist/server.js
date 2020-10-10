@@ -12,7 +12,7 @@ process.on('uncaughtException', (err) => {
 });
 dotenv_1.default.config({ path: './config.env' });
 const app_1 = __importDefault(require("./app"));
-const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 mongoose_1.connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,

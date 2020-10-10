@@ -5,6 +5,7 @@ import { AppError } from '../utils/appError';
 
 export const getMe: RequestHandler = (req, res, next) => {
   req.params.id = req.session.user._id;
+  console.log(req.session.user._id);
   next();
 };
 

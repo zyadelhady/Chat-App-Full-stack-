@@ -11,7 +11,7 @@ dotenv.config({ path: './config.env' });
 import app from './app';
 
 const DB = process.env.DATABASE.replace(
-  '<password>',
+  '<PASSWORD>',
   process.env.DATABASE_PASSWORD
 );
 

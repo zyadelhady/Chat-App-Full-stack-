@@ -5,6 +5,7 @@ const userModel_1 = require("../models/userModel");
 const catchAsync_1 = require("../utils/catchAsync");
 const appError_1 = require("../utils/appError");
 exports.protect = (req, res, next) => {
+    console.log(req.session);
     if (!req.session.user) {
         return next(new appError_1.AppError('You are not logged int! Please log in to get access.', 401));
     }

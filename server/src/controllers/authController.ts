@@ -4,6 +4,7 @@ import { catchAsync } from '../utils/catchAsync';
 import { AppError } from '../utils/appError';
 
 export const protect: RequestHandler = (req, res, next) => {
+  console.log(req.session);
   if (!req.session.user) {
     return next(
       new AppError('You are not logged int! Please log in to get access.', 401)
