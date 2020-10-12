@@ -15,16 +15,18 @@ import { Spinner } from '../../components/Spinner/Spinner';
 
 export const Chatting = () => {
   const [msg, setMsg] = useState('');
+  const [typingMessage, setTypingMessage] = useState('');
   const { user } = useContext(Context);
   const [msgs, setMsgs] = useState([]);
   const { username } = useParams();
   const [isLoading, setIsLoading] = useState(false);
+  const [otherUserTyping, setOtherUserTyping] = useState(false);
 
   const msgsRef = useRef(null);
 
   useEffect(() => {
     msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
-  }, [msgs]);
+  }, [msgs, otherUserTyping]);
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -41,6 +43,16 @@ export const Chatting = () => {
       console.log('disconnected from server');
     });
   }, []);
+
+  useEffect(() => {
+    socket.on('UserIsTyping', (name) => {
+      setOtherUserTyping(true);
+      setTypingMessage(`${name.name} is typing....`);
+    });
+    socket.on('UserStoppedTyping', () => {
+      setOtherUserTyping(false);
+    });
+  }, [otherUserTyping]);
 
   useEffect(() => {
     socket.emit('join', { ...user, to: username });
@@ -139,6 +151,14 @@ and you can contact me with my email : zyade40@gmail.com`,
       <Header photo={pic} name={`${username}`} />
       <ChattingMessages setMsgs={setMsgs} msgs={msgs} msgsRef={msgsRef}>
         {isLoading ? <Spinner /> : renderMesgs}
+        {otherUserTyping ? (
+          <ChatMessage
+            key={uniqid()}
+            createdAt={new Date(Date.now())}
+            type={'typing'}
+            msg={typingMessage}
+          />
+        ) : null}
       </ChattingMessages>
       <ChattingSend sendMsgHandler={sendMsgHandler} msg={msg} setMsg={setMsg} />
     </div>

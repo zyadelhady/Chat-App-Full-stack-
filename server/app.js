@@ -13,7 +13,11 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
-app.use(cors());
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+} else {
+  app.use(cors({ origin: 'URL', credentials: true }));
+}
 
 app.options('*', cors());
 

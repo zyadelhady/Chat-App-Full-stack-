@@ -70,6 +70,16 @@ module.exports = io => {
       }
     });
 
+    socket.on('typing', async name => {
+      socket.broadcast
+        .to(currentRoom)
+        .emit('UserIsTyping', { name: name.name });
+    });
+
+    socket.on('stoppedTyping', () => {
+      socket.broadcast.to(currentRoom).emit('UserStoppedTyping');
+    });
+
     socket.on('disconnect', async () => {
       await User.findOneAndUpdate(
         {
