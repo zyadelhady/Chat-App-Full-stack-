@@ -20,6 +20,8 @@ export const ChatMessage = (props) => {
           ? classes.Recevied
           : props.type === 'sent'
           ? classes.Sent
+          : props.type === 'typing'
+          ? classes.Typing
           : null,
       ].join(' ')}
     >

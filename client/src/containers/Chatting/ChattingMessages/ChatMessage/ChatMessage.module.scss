@@ -1,3 +1,15 @@
+@keyframes pop {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
 .Container {
   display: flex;
 
@@ -35,7 +47,15 @@
     margin-left: 1rem;
   }
 }
-
+.Typing {
+  margin-right: auto;
+  .Msg {
+    background-color: var(--bg-clr);
+    border-radius: 2rem 2rem 2rem 0;
+    margin-right: 1rem;
+  }
+  animation: pop 0.4s linear infinite;
+}
 .Date {
   opacity: 0.8;
   font-size: 1.2rem;
