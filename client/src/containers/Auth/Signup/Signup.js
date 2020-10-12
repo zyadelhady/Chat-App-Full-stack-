@@ -26,7 +26,7 @@ export const Signup = () => {
         withCredentials: true,
       });
 
-      setUser(response.data.data);
+      setUser(response.data.data.user);
       history.push('/');
       setLoading(false);
     } catch (err) {
