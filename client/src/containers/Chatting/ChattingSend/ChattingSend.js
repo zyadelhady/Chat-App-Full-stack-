@@ -13,13 +13,13 @@ export const ChattingSend = (props) => {
       <TextareaAutosize
         placeholder="Type a message..."
         className={classes.SendTextarea}
-        value={props.msg}
-        onChange={(e) => props.setMsg(e.target.value)}
+        ref={props.msgRef}
         onKeyDown={(e) => {
           if (e.keyCode === 13 && !e.shiftKey) {
             e.preventDefault();
             props.sendMsgHandler();
             socket.emit('stoppedTyping');
+            props.msgRef.current.value = '';
           } else {
             if (e.target.value.length > 1) {
               socket.emit('typing', { name: user.username });

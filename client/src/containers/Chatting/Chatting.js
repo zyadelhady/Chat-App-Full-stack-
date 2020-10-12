@@ -14,13 +14,13 @@ import uniqid from 'uniqid';
 import { Spinner } from '../../components/Spinner/Spinner';
 
 export const Chatting = () => {
-  const [msg, setMsg] = useState('');
   const [typingMessage, setTypingMessage] = useState('');
   const { user } = useContext(Context);
   const [msgs, setMsgs] = useState([]);
   const { username } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [otherUserTyping, setOtherUserTyping] = useState(false);
+  const msgRef = useRef(null);
 
   const msgsRef = useRef(null);
 
@@ -83,26 +83,36 @@ export const Chatting = () => {
   }, [getMsgs]);
 
   const sendMsgHandler = () => {
-    if (msg.trim().length !== 0) {
+    const userMessage = msgRef.current.value;
+    if (userMessage.trim().length !== 0) {
       socket.emit('createMsg', {
-        message: msg,
+        message: userMessage,
         to: username,
         from: user._id,
         username: user.username,
         createdAt: Date.now(),
       });
+      console.log(userMessage);
+
       setMsgs((prev) => {
+        console.log(userMessage);
+
         return [
           ...prev,
-          { message: msg, from: user._id, createdAt: Date.now() },
+          {
+            message: userMessage,
+            from: user._id,
+            createdAt: Date.now(),
+          },
         ];
       });
-      setMsg('');
+
+      // msgRef.current.value = '';
 
       if (username === 'AdminBot') {
         const botMessages = [
           `welcome to my small chat app 😃 take a look at my github : https://github.com/zyadelhady       
-and you can contact me with my email : zyade40@gmail.com`,
+          and you can contact me with my email : zyade40@gmail.com`,
           'hi nice to have you here 🙋',
           'you should see my github : https://github.com/zyadelhady',
           'you can contact me now at zyade40@gmail.com 😉',
@@ -160,7 +170,7 @@ and you can contact me with my email : zyade40@gmail.com`,
           />
         ) : null}
       </ChattingMessages>
-      <ChattingSend sendMsgHandler={sendMsgHandler} msg={msg} setMsg={setMsg} />
+      <ChattingSend sendMsgHandler={sendMsgHandler} msgRef={msgRef} />
     </div>
   );
 };
