@@ -12,6 +12,8 @@ import axios from './axios';
 import ThemeContext from './ThemeContext';
 
 function App() {
+  console.log(process.env);
+
   const { user, setUser } = useContext(Context);
   const [isAppLoading, setIsAppLoading] = useState(false);
 
